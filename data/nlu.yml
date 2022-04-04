@@ -1,0 +1,141 @@
+version: "3.0"
+
+nlu:
+- intent: salam
+  examples: |
+    - hey
+    - hello
+    - hi
+    - selamat pagi
+    - selamat malam
+    - selamat siang
+    - ayo
+    - pagi
+    - malam
+    - siang
+
+- intent: berpisah
+  examples: |
+    - sampai jumpa
+    - terima kasih
+    - sampai bertemu lagi
+    - dah
+    - dadah
+    - semoga harimu menyenangkan
+
+- intent: afirmasi
+  examples: |
+    - ya
+    - betul
+    - benar
+    - tentu saja
+    - kedengarannya bagus
+
+- intent: tolakan
+  examples: |
+    - tidak
+    - tidak akan pernah
+    - sepertinya bukan begitu
+    - saya tidak suka
+    - tidak suka
+    - tidak mungkin
+    - tidak yakin
+
+- intent: bagus
+  examples: |
+    - sempurna
+    - baik sekali
+    - luar biasa
+    - saya merasa senang
+    - saya merasa luar biasa
+    - saya merasa baik
+    - aku akan menyelamatkan dunia
+    - sangat baik
+    - sangat sempurna
+
+- intent: tidak_bagus
+  examples: |
+    - hariku buruk
+    - aku sedih
+    - aku merasa tidak baik
+    - aku kecewa
+    - sangat sedih
+    - aku marah
+    - sedih
+    - tidak senang
+    - tidak baik
+    - tidak baik sekali
+    - tidak begitu baik
+    - sedih sekali
+    - kecewa
+    - sangat kecewa
+
+- intent: tantangan_bot
+  examples: |
+    - apakah kamu bot?
+    - apakah kamu manusia?
+    - apakah aku berbicara kepada manusia?
+    - apakah aku berbicara kepada bot?
+
+- intent: makasih
+  examples: |
+    - terima kasih
+    - thanks
+    - okay
+    - oke
+
+# - intent: perintah
+#   examples: |
+#     - pergi
+#     - maju
+#     - mundur
+#     - ruangan
+#     - mengantar
+#     - tolong antar berkas laboratorium
+#     - antar
+#     - tolong antar makanan
+#     - pergi ke ruangan
+
+- intent: entry_aksi
+  examples: |
+    - [pergi](aksi) ke ruangan [satu kosong satu](ruangan)
+    - [maju](aksi) 5 langkah
+    - [putar](aksi) 2 putaran
+    - [mundur](aksi) 2 langkah
+    - tolong [antar](aksi) berkas laboratorium
+    - tolong [antarkan](aksi) berkas laboratorium
+    - tolong [antar](aksi) makanan
+    - tolong [antarkan](aksi) makanan
+
+- intent: entry_ruangan
+  examples: |
+    - ke [unit gawat darurat](ruangan) ya
+    - [unit perawatan intensif](ruangan)
+    - [satu kosong satu](ruangan)
+    - ke ruangan [satu kosong satu](ruangan) ya
+    - tolong ke ruangan [dua kosong dua](ruangan) ya
+
+- lookup: aksi
+  examples: |
+    - pergi
+    - maju
+    - mundur
+    - putar
+    - bergerak
+    - antar
+    - antarkan
+
+- lookup: ruangan
+  examples: |
+    - unit gawat darurat
+    - unit perawatan intensif
+    - satu kosong satu
+    - satu kosong dua
+    - satu kosong tiga
+    - dua kosong satu
+    - dua kosong dua
+    - dua kosong tiga
+    - tiga kosong satu
+    - tiga kosong dua
+    - tiga kosong tiga
+

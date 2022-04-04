@@ -1,0 +1,63 @@
+version: "3.0"
+
+stories:
+
+- story: memberi salam
+  steps:
+  - intent: salam
+  - action: utter_salam
+
+- story: perpisahan
+  steps:
+  - intent: berpisah
+  - action: utter_pisah
+
+- story: memberi afirmasi
+  steps:
+  - intent: afirmasi
+  - action: utter_senang
+
+- story: memberi tolakan
+  steps:
+  - intent: tolakan
+  - action: utter_maaf
+
+- story: memberi reaksi bagus
+  steps:
+  - intent: bagus
+  - action: utter_senang
+
+- story: memberi reaksi tidak_bagus
+  steps:
+  - intent: tidak_bagus
+  - action: utter_semangat
+
+- story: memberi makasih
+  steps:
+  - intent: makasih
+  - action: utter_apakah_membantu
+
+# - story: memberi respon mengerti
+#   steps:
+#   - intent: perintah
+#   - action: utter_dimengerti
+
+- story: memberi aksi
+  steps:
+  - intent: salam
+  - action: utter_salam
+  - intent: entry_aksi
+    entities:
+    - aksi: pergi
+  - action: action_read_aksi
+
+- story: memberi nomor ruangan
+  steps:
+  - intent: salam
+  - action: utter_salam
+  - intent: entry_ruangan
+    entities:
+    - ruangan: satu kosong satu
+  - action: action_read_ruangan
+  
+  

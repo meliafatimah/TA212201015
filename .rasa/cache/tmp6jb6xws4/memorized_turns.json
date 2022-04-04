@@ -1,0 +1,21 @@
+{
+  "lookup": {
+    "eJyLrq6NBQAEOAGx": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohKTG9tLi2NhYA6ZUbgA==": "utter_senang",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohKTG9tLiWgBmlJSWpRfHFqXmJeek4jYgFAHa2NPI=": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3BCidllmUm1icWVsbCwA+Pxy6": "utter_senang",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3BCidllmUm1icWUvAmNKSktSi+OLUvMS8dHymxAIAwi03Zg==": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohKbWoILM4MaO2NhYAPnMcvA==": "utter_pisah",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohKbWoILM4MaOWgDGlJSWpRfEQpXgMiQUAiwQ3Aw==": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEqhODEnMbe2NhYA6b8bfA==": "utter_salam",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEqhODEnMbeWgBmlJSWpRfEQpbhMiAUAP380fA==": "action_listen",
+    "eJydjkEKwzAMBL+iB4SSXv0VY4QJOog4TrGUQjH+e+SmJdBLoDftMszK1zZAfRR6YpyU1+ygHgfmuJCDT0gsStnYTagYw9miOpCY4tIuHJsqFTzQ/wy/X0haVTo0C6NpysuBv9/GcPqtZWUyyncqDPBdfPPYy9bCDvfvYIo=": "action_read_aksi",
+    "eJytjkEKAjEMRa+SAwwybnuVUkLRLIKdjjQZQcrc3XSqCG4cxF3+5/F+fF0HqNdCN4wn5Tk7qP3AHCdy8AyJRSkbuwgVYzhbVAcSU5zWL45FlQp29DfD5xeSZpUGXYTRNOXuwB8PY3j7rWVlMso3KgzwWtx4bOXO2ULx3Pk/LocH0qmNrA==": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEqhJD8nMTsxr7Y2FgAiMRxY": "utter_maaf",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEqhJD8nMTsxr5aAKaUlJalF8bmJiWl4jIgFAOOmNbs=": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEqhJDMlMTs+KTG9tLi2NhYAljsd7A==": "utter_semangat",
+    "eJyFjMEJgDAMAFfJAE7QVURC1FCCNkqT+ind3YL++7uD4+baJqh35gdpc7k0QP0AlRIH+OUUc9beFuPcG9GuHsBlpwNXisXa4FTcOaNxIo3kg9XyApCROp4=": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohNzE7sTgzo7Y2FgAhpRxM": "utter_apakah_membantu",
+    "eJyFjMEJgDAMAFfpAE7QVURClECDJpY29VO6uwF96+8Ojpv7mELPhS7AzfjUGPoDoCgUwysHVyP1tlUq3rC6WgyCO1ZO4+fSzKgAZq8TCMmKau3jttxT5Dos": "action_listen"
+  }
+}

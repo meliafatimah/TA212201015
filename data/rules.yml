@@ -1,0 +1,23 @@
+version: "3.0"
+
+rules:
+
+- rule: Bilang perpisahan bagaimanapun kondisinya
+  steps:
+  - intent: berpisah
+  - action: utter_pisah
+
+- rule: Bilang "aku adalah bot" bagaimanapun kondisinya
+  steps:
+  - intent: tantangan_bot
+  - action: utter_iamabot
+
+- rule: Ekstrak aksi
+  steps:
+  - intent: entry_aksi
+  - action: action_read_aksi
+
+- rule: Ekstrak ruangan
+  steps:
+  - intent: entry_ruangan
+  - action: action_read_ruangan

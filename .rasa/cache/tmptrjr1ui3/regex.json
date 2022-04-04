@@ -1,0 +1,6 @@
+[
+  {
+    "name": "aksi",
+    "pattern": "(\\bpergi\\b|\\bmaju\\b|\\bmundur\\b|\\bputar\\b|\\bbergerak\\b|\\bantar\\b|\\bantarkan\\b)"
+  }
+]

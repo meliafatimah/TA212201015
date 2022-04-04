@@ -1,0 +1,28 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-aksi",
+      "2": "I-aksi",
+      "3": "L-aksi",
+      "4": "U-aksi",
+      "5": "B-ruangan",
+      "6": "I-ruangan",
+      "7": "L-ruangan",
+      "8": "U-ruangan",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-aksi": 1,
+      "I-aksi": 2,
+      "L-aksi": 3,
+      "U-aksi": 4,
+      "B-ruangan": 5,
+      "I-ruangan": 6,
+      "L-ruangan": 7,
+      "U-ruangan": 8,
+      "O": 0
+    },
+    "num_tags": 9
+  }
+]

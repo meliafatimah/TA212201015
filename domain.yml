@@ -1,0 +1,77 @@
+version: "3.0"
+
+intents:
+  # - greet
+  # - aksi
+  # - ruangan
+  # - nama
+  - salam
+  - berpisah
+  - afirmasi
+  - tolakan
+  - bagus
+  - tidak_bagus
+  - tantangan_bot
+  - makasih
+  # - perintah
+  - entry_aksi
+  - entry_ruangan
+
+entities:
+  - aksi
+  - ruangan
+
+slots:
+  aksi_entry:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: aksi
+  ruangan_entry:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: ruangan
+
+responses:
+  utter_salam:
+  - text: Hai, aku adalah bot robot pengantar. Tolong beri tahu hal yang bisa dibantu ya
+
+  utter_semangat:
+  - text: Bagus, semoga harimu menyenangkan!
+
+  utter_apakah_membantu:
+  - text: Apakah membantu?
+
+  utter_senang:
+  - text: Bagus, senang bisa membantu
+
+  utter_pisah:
+  - text: Sampai bertemu lagi
+
+  utter_iamabot:
+  - text: Halo aku sedang kosong dan bisa membantumu. Tolong beritahu informasi ruangan yang dituju, nama kamu sebagai pengirim, nama penerima, dan barang yang dikirimkan. Terima kasih!
+
+  utter_maaf:
+  - text: Maaf sepertinya terjadi kesalahan. Tolong beri tahu petugas terdekat mengenai kendala ini ya. Terima kasih!
+
+  utter_dimengerti:
+  - text: Baik dimengerti. Akan saya antarkan
+
+actions:
+  - utter_salam
+  - utter_semangat
+  - utter_apakah_membantu
+  - utter_senang
+  - utter_pisah
+  - utter_iambot
+  - utter_maaf
+  - utter_dimengerti
+  - action_read_aksi
+  - action_read_ruangan
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
