@@ -5,6 +5,8 @@ nlu:
   examples: |
     - hey
     - hello
+    - hai
+    - halo
     - hi
     - selamat pagi
     - selamat malam
@@ -102,10 +104,10 @@ nlu:
     - [maju](aksi) 5 langkah
     - [putar](aksi) 2 putaran
     - [mundur](aksi) 2 langkah
-    - tolong [antar](aksi) berkas laboratorium
-    - tolong [antarkan](aksi) berkas laboratorium
-    - tolong [antar](aksi) makanan
-    - tolong [antarkan](aksi) makanan
+    - tolong [antar](aksi) [berkas laboratorium](barang)
+    - tolong [antarkan](aksi) [berkas laboratorium](barang)
+    - tolong [antar](aksi) [makanan](barang)
+    - tolong [antarkan](aksi) [makanan](barang)
 
 - intent: entry_ruangan
   examples: |
@@ -114,6 +116,14 @@ nlu:
     - [satu kosong satu](ruangan)
     - ke ruangan [satu kosong satu](ruangan) ya
     - tolong ke ruangan [dua kosong dua](ruangan) ya
+
+- intent: entry_barang
+  examples: |
+    - [berkas laboraatorium](barang)
+    - [makanan](barang)
+    - hal yang harus diantar adalah [obat](barang)
+    - barang yang perlu diantar adalah [makan pagi](barang)
+    - [makanan](barang) yang harus diantar adalah pisang dan susu
 
 - lookup: aksi
   examples: |
@@ -139,3 +149,14 @@ nlu:
     - tiga kosong dua
     - tiga kosong tiga
 
+- lookup: barang
+  examples: |
+    - berkas laboratorium
+    - hasil cek laboratorium
+    - hasil laboratorium
+    - makanan
+    - obat
+    - makan siang
+    - sarapan
+    - makan pagi
+    - makan siang

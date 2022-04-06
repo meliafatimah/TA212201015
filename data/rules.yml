@@ -21,3 +21,8 @@ rules:
   steps:
   - intent: entry_ruangan
   - action: action_read_ruangan
+
+- rule: Ekstrak barang
+  steps:
+  - intent: entry_barang
+  - action: action_read_barang
