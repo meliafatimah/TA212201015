@@ -1,10 +1,6 @@
 version: "3.0"
 
 intents:
-  # - greet
-  # - aksi
-  # - ruangan
-  # - nama
   - salam
   - berpisah
   - afirmasi
@@ -13,13 +9,14 @@ intents:
   - tidak_bagus
   - tantangan_bot
   - makasih
-  # - perintah
   - entry_aksi
   - entry_ruangan
+  - entry_barang
 
 entities:
   - aksi
   - ruangan
+  - barang
 
 slots:
   aksi_entry:
@@ -34,6 +31,12 @@ slots:
     mappings:
     - type: from_entity
       entity: ruangan
+  barang_entry:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: barang
 
 responses:
   utter_salam:
@@ -66,11 +69,12 @@ actions:
   - utter_apakah_membantu
   - utter_senang
   - utter_pisah
-  - utter_iambot
+  - utter_iambott
   - utter_maaf
   - utter_dimengerti
   - action_read_aksi
   - action_read_ruangan
+  - action_read_barang
 
 session_config:
   session_expiration_time: 60

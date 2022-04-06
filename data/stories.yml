@@ -59,5 +59,12 @@ stories:
     entities:
     - ruangan: satu kosong satu
   - action: action_read_ruangan
-  
-  
+
+- story: memberi barang
+  steps:
+  - intent: salam
+  - action: utter_salam
+  - intent: entry_barang
+    entities:
+    - barang: makanan
+  - action: action_read_barang  

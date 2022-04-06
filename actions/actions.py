@@ -38,7 +38,9 @@ class ActionReadAksi(Action):
         aksi=next(tracker.get_latest_entity_values("aksi"),None)
         print('aksi berhasil diekstrak : ',aksi)
         ruangan=next(tracker.get_latest_entity_values("ruangan"),None)
-        print('nomor ruangan berhasil diekstrak : ',ruangan)
+        print('ruangan berhasil diekstrak : ',ruangan)
+        barang=next(tracker.get_latest_entity_values("barang"),None)
+        print('barang berhasil diekstrak : ',barang)
         if not aksi:
             print('inside if of aksi')
             msg=f"Tolong beritahu apa yang harus aku lakukan"
@@ -51,7 +53,14 @@ class ActionReadAksi(Action):
             msg=f"Tolong beritahu tujuan ruangan untuk mengantar"
             dispatcher.utter_message(text=msg)
             aksi=next(tracker.get_latest_entity_values("ruangan"),None)
-            print('inside if of ruangan, ruangan taken',aksi)
+            print('inside if of ruangan, ruangan taken',ruangan)
+            return []
+        if not barang:
+            print('inside if of ruangan')
+            msg=f"Tolong beritahu barang yang harus diantar"
+            dispatcher.utter_message(text=msg)
+            aksi=next(tracker.get_latest_entity_values("barang"),None)
+            print('inside if of barang, barang taken',barang)
             return []
         dispatcher.utter_message(text="Baik, tolong beritahu nama anda dan nama orang yang dituju ya!")
 
@@ -66,21 +75,19 @@ class ActionReadRuangan(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
         ruangan=next(tracker.get_latest_entity_values("ruangan"),None)
-        print('nomor ruangan berhasil diekstrak : ',ruangan)
-        # if not aksi:
-        #     print('inside if of aksi')
-        #     msg=f"Give me a aksi to move"
-        #     dispatcher.utter_message(text=msg)
-        #     aksi=next(tracker.get_latest_entity_values("aksi"),None)
-        #     print('inside if of aksi, aksi taken',aksi)
-        #     return []
-        # if not aksi:
-        #     print('inside if of aksi')
-        #     msg=f"Give me a aksi to move"
-        #     dispatcher.utter_message(text=msg)
-        #     aksi=next(tracker.get_latest_entity_values("aksi"),None)
-        #     print('inside if of aksi, aksi taken',aksi)
-        #     return []
-        dispatcher.utter_message(text="Ruangan tujuan berhasil di ekstrak")
+        print('ruangan berhasil diekstrak : ',ruangan)
+        dispatcher.utter_message(text="Ruangan tujuan adalah {ruangan}")
 
 
+class ActionReadBarang(Action):
+
+    def name(self) -> Text:
+        return "action_read_barang"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        barang=next(tracker.get_latest_entity_values("barang"),None)
+        print('barang berhasil diekstrak : ',barang)
+        dispatcher.utter_message(text="Nama barang adalah {barang}")
