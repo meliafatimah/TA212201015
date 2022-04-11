@@ -11,6 +11,10 @@ stories:
   steps:
   - intent: berpisah
   - action: utter_pisah
+  # - action: action_pause_conversation
+  # - action: action_resume_conversation
+  # - intent: salam
+  # - action: utter_salam
 
 - story: memberi afirmasi
   steps:
@@ -68,3 +72,15 @@ stories:
     entities:
     - barang: makanan
   - action: action_read_barang  
+
+- story: memberi nama
+  steps:
+  - intent: salam
+  - action: utter_salam
+  - intent: entry_nama
+    entities:
+    - nama: Melia
+      role: pengirim
+    - nama: Andhika
+      role: penerima
+  - action: action_read_nama

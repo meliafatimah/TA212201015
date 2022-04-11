@@ -1,0 +1,78 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-\"entity\"",
+      "2": "I-\"entity\"",
+      "3": "L-\"entity\"",
+      "4": "U-\"entity\"",
+      "5": "B-aksi",
+      "6": "I-aksi",
+      "7": "L-aksi",
+      "8": "U-aksi",
+      "9": "B-barang",
+      "10": "I-barang",
+      "11": "L-barang",
+      "12": "U-barang",
+      "13": "B-nama",
+      "14": "I-nama",
+      "15": "L-nama",
+      "16": "U-nama",
+      "17": "B-ruangan",
+      "18": "I-ruangan",
+      "19": "L-ruangan",
+      "20": "U-ruangan",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-\"entity\"": 1,
+      "I-\"entity\"": 2,
+      "L-\"entity\"": 3,
+      "U-\"entity\"": 4,
+      "B-aksi": 5,
+      "I-aksi": 6,
+      "L-aksi": 7,
+      "U-aksi": 8,
+      "B-barang": 9,
+      "I-barang": 10,
+      "L-barang": 11,
+      "U-barang": 12,
+      "B-nama": 13,
+      "I-nama": 14,
+      "L-nama": 15,
+      "U-nama": 16,
+      "B-ruangan": 17,
+      "I-ruangan": 18,
+      "L-ruangan": 19,
+      "U-ruangan": 20,
+      "O": 0
+    },
+    "num_tags": 21
+  },
+  {
+    "tag_name": "role",
+    "ids_to_tags": {
+      "1": "B-penerima",
+      "2": "I-penerima",
+      "3": "L-penerima",
+      "4": "U-penerima",
+      "5": "B-pengirim",
+      "6": "I-pengirim",
+      "7": "L-pengirim",
+      "8": "U-pengirim",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-penerima": 1,
+      "I-penerima": 2,
+      "L-penerima": 3,
+      "U-penerima": 4,
+      "B-pengirim": 5,
+      "I-pengirim": 6,
+      "L-pengirim": 7,
+      "U-pengirim": 8,
+      "O": 0
+    },
+    "num_tags": 9
+  }
+]

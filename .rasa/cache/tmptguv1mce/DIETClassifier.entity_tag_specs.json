@@ -1,0 +1,36 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-aksi",
+      "2": "I-aksi",
+      "3": "L-aksi",
+      "4": "U-aksi",
+      "5": "B-barang",
+      "6": "I-barang",
+      "7": "L-barang",
+      "8": "U-barang",
+      "9": "B-ruangan",
+      "10": "I-ruangan",
+      "11": "L-ruangan",
+      "12": "U-ruangan",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-aksi": 1,
+      "I-aksi": 2,
+      "L-aksi": 3,
+      "U-aksi": 4,
+      "B-barang": 5,
+      "I-barang": 6,
+      "L-barang": 7,
+      "U-barang": 8,
+      "B-ruangan": 9,
+      "I-ruangan": 10,
+      "L-ruangan": 11,
+      "U-ruangan": 12,
+      "O": 0
+    },
+    "num_tags": 13
+  }
+]
