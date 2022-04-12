@@ -1,0 +1,18 @@
+[
+  {
+    "name": "aksi",
+    "pattern": "(\\bpergi\\b|\\bmaju\\b|\\bmundur\\b|\\bputar\\b|\\bbergerak\\b|\\bantar\\b|\\bantarkan\\b)"
+  },
+  {
+    "name": "ruangan",
+    "pattern": "(\\bunit\\ gawat\\ darurat\\b|\\bigd\\b|\\bunit\\ perawatan\\ intensif\\b|\\bicu\\b|\\bsatu\\ kosong\\ satu\\b|\\bsatu\\ kosong\\ dua\\b|\\bsatu\\ kosong\\ tiga\\b|\\bdua\\ kosong\\ satu\\b|\\bdua\\ kosong\\ dua\\b|\\bdua\\ kosong\\ tiga\\b|\\btiga\\ kosong\\ satu\\b|\\btiga\\ kosong\\ dua\\b|\\btiga\\ kosong\\ tiga\\b)"
+  },
+  {
+    "name": "barang",
+    "pattern": "(\\bberkas\\ laboratorium\\b|\\bhasil\\ cek\\ laboratorium\\b|\\bhasil\\ laboratorium\\b|\\bmakanan\\b|\\bobat\\b|\\bmakan\\ siang\\b|\\bsarapan\\b|\\bmakan\\ pagi\\b|\\bmakan\\ siang\\b)"
+  },
+  {
+    "name": "nama",
+    "pattern": "(\\bMelia\\b|\\bHarry\\b|\\bAndhika\\b|\\bYasmin\\b|\\bAdeline\\b|\\bOdelia\\b|\\bSabrina\\b|\\bZafran\\b|\\bRatu\\b|\\bSarah\\b|\\bAlya\\b)"
+  }
+]
