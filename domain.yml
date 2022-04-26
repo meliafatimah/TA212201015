@@ -1,10 +1,6 @@
 version: "3.0"
 
 intents:
-  # - greet
-  # - aksi
-  # - ruangan
-  # - nama
   - salam
   - berpisah
   - afirmasi
@@ -13,13 +9,19 @@ intents:
   - tidak_bagus
   - tantangan_bot
   - makasih
-  # - perintah
   - entry_aksi
   - entry_ruangan
+  - entry_barang
+  - entry_nama
 
 entities:
   - aksi
   - ruangan
+  - barang
+  - nama:
+      roles:
+      - pengirim
+      - penerima
 
 slots:
   aksi_entry:
@@ -34,6 +36,24 @@ slots:
     mappings:
     - type: from_entity
       entity: ruangan
+  barang_entry:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: barang
+  pengirim_entry:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: nama
+      role: pengirim
+  penerima_entry:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: nama
+      role: penerima
 
 responses:
   utter_salam:
@@ -60,6 +80,19 @@ responses:
   utter_dimengerti:
   - text: Baik dimengerti. Akan saya antarkan
 
+  utter_read_aksi:
+  - text: "Oke, aku harus {aksi_entry} {barang_entry} ke {ruangan_entry}"
+
+  utter_read_ruangan:
+  - text: "Ruangan tujuan adalah {ruangan_entry}"
+
+  utter_read_barang:
+  - text: "Nama barang adalah {barang_entry}"
+
+  utter_read_nama:
+  - text: "Nama anda adalah {pengirim_entry} dan aku akan mengirimkan barang kepada {penerima_entry}"
+
+
 actions:
   - utter_salam
   - utter_semangat
@@ -71,6 +104,10 @@ actions:
   - utter_dimengerti
   - action_read_aksi
   - action_read_ruangan
+  - action_read_barang
+  - action_read_nama
+  # - action_resume_conversation
+  # - action_pause_conversation
 
 session_config:
   session_expiration_time: 60
