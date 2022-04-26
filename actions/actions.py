@@ -7,10 +7,13 @@
 
 # This is a simple example for a custom action which utters "Hello World!"
 
+import logging
+
 from typing import Any, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.events import ConversationPaused, ConversationResumed
 #
 #
 # class ActionHelloWorld(Action):
@@ -112,46 +115,46 @@ class ActionReadNama(Action):
         print('penerima berhasil diekstrak : ',penerima)
         dispatcher.utter_message(template="utter_read_nama")
 
-# class ActionPauseConversation(Action):
-#     """Pause a conversation"""
+class ActionPauseConversation(Action):
+    """Pause a conversation"""
 
-#     def name(self):
-#         return "action_pause_conversation"
+    def name(self):
+        return "action_paused_conversation"
 
-#     async def run(self, dispatcher, tracker, domain) -> List[EventType]:
-#         logger.info(f"Pausing the conversation")
+    def run(self, dispatcher, tracker, domain):
+        # logger.info(f"Pausing the conversation")
 
-#         sender_id = tracker.sender_id
+        sender_id = tracker.sender_id
 
-#         dispatcher.utter_message(
-#             f"Pausing this conversation, with SENDER_ID: " f"{sender_id}"
-#         )
+        dispatcher.utter_message(
+            f"Pausing this conversation, with SENDER_ID: " f"{sender_id}"
+        )
 
-#         dispatcher.utter_message(
-#             f"To resume, send this resume event to the rasa-production container:"
-#         )
+        dispatcher.utter_message(
+            f"To resume, send this resume event to the rasa-production container:"
+        )
 
-#         dispatcher.utter_message(
-#             """curl --request POST
-#             --url 'http://localhost:5005/conversations/SENDER_ID/tracker/events?token=RASA_TOKEN'
-#             --header 'content-type: application/json'
-#             --data '[{"event": "resume"}, {"event": "followup", "name": "action_resume_conversation"}]'       
-#             """
-#         )
+        dispatcher.utter_message(
+            """curl --request POST
+            --url 'http://localhost:5005/conversations/SENDER_ID/tracker/events?token=RASA_TOKEN'
+            --header 'content-type: application/json'
+            --data '[{"event": "resume"}, {"event": "followup", "name": "action_resume_conversation"}]'       
+            """
+        )
 
-#         dispatcher.utter_message(
-#             f"When you're running it within Rasa X, send this resume event to the rasa-production container via the Rasa X /core/... endpoint:"
-#         )
+        dispatcher.utter_message(
+            f"When you're running it within Rasa X, send this resume event to the rasa-production container via the Rasa X /core/... endpoint:"
+        )
 
-#         dispatcher.utter_message(
-#             """curl --request POST
-#             --url 'http://HOST:PORT/core/conversations/SENDER_ID/tracker/events?token=RASA_TOKEN'
-#             --header 'content-type: application/json'
-#             --data '[{"event": "resume"}, {"event": "followup", "name": "action_resume_conversation"}]'       
-#             """
-#         )
+        dispatcher.utter_message(
+            """curl --request POST
+            --url 'http://HOST:PORT/core/conversations/SENDER_ID/tracker/events?token=RASA_TOKEN'
+            --header 'content-type: application/json'
+            --data '[{"event": "resume"}, {"event": "followup", "name": "action_resume_conversation"}]'       
+            """
+        )
 
-#         return [ConversationPaused()]
+        return [ConversationPaused()]
 
 # class ActionResumeConversation(Action):
 #     """Just to inform the user that a conversation has resumed. 

@@ -11,7 +11,7 @@ stories:
   steps:
   - intent: berpisah
   - action: utter_pisah
-  # - action: action_pause_conversation
+  - action: action_paused_conversation
   # - action: action_resume_conversation
   # - intent: salam
   # - action: utter_salam

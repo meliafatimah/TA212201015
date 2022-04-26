@@ -107,7 +107,7 @@ actions:
   - action_read_barang
   - action_read_nama
   # - action_resume_conversation
-  # - action_pause_conversation
+  - action_paused_conversation
 
 session_config:
   session_expiration_time: 60
