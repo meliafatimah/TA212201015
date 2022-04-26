@@ -6,6 +6,7 @@ rules:
   steps:
   - intent: berpisah
   - action: utter_pisah
+  - action: action_paused_conversation
 
 - rule: Bilang "aku adalah bot" bagaimanapun kondisinya
   steps:
