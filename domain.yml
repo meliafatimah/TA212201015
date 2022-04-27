@@ -108,6 +108,8 @@ actions:
   - action_read_nama
   # - action_resume_conversation
   - action_paused_conversation
+  - action_send_data_ros
+  - action_send_database
 
 session_config:
   session_expiration_time: 60

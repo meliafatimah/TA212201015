@@ -13,10 +13,10 @@ rules:
   - intent: tantangan_bot
   - action: utter_iamabot
 
-- rule: Ekstrak aksi
-  steps:
-  - intent: entry_aksi
-  - action: action_read_aksi
+# - rule: Ekstrak aksi
+#   steps:
+#   - intent: entry_aksi
+#   - action: action_read_aksi
 
 - rule: Ekstrak ruangan
   steps:
@@ -28,7 +28,7 @@ rules:
   - intent: entry_barang
   - action: action_read_barang
 
-- rule: Ekstrak nama
-  steps:
-  - intent: entry_nama
-  - action: action_read_nama
+# - rule: Ekstrak nama
+#   steps:
+#   - intent: entry_nama
+#   - action: action_read_nama

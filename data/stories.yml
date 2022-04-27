@@ -54,6 +54,7 @@ stories:
     entities:
     - aksi: pergi
   - action: action_read_aksi
+  - action: action_send_data_ros
 
 - story: memberi nomor ruangan
   steps:
@@ -84,3 +85,4 @@ stories:
     - nama: Andhika
       role: penerima
   - action: action_read_nama
+  - action: action_send_database

@@ -8,12 +8,18 @@
 # This is a simple example for a custom action which utters "Hello World!"
 
 import logging
+import socket
+import json
+# import mysql.connector
 
 from typing import Any, Text, Dict, List
 
+from database_connectivity import DataUpdate
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import ConversationPaused, ConversationResumed
+from rasa_sdk.events import ConversationPaused, ConversationResumed, SlotSet
+
+
 #
 #
 # class ActionHelloWorld(Action):
@@ -56,9 +62,23 @@ class ActionReadAksi(Action):
             dispatcher.utter_message(text=msg)
             aksi=next(tracker.get_latest_entity_values("barang"),None)
             return []
-        print('aksi berhasil diekstrak : ',aksi)
-        print('ruangan berhasil diekstrak : ',ruangan)
-        print('barang berhasil diekstrak : ',barang)
+        SlotSet("aksi_entry", aksi)
+        SlotSet("ruangan_entry", ruangan)
+        SlotSet("barang_entry", barang)
+        print('aksi berhasil diekstrak : ',tracker.get_slot("aksi_entry"))
+        print('ruangan berhasil diekstrak : ',tracker.get_slot("ruangan_entry"))
+        print('barang berhasil diekstrak : ',tracker.get_slot("barang_entry"))
+        # aksi = tracker.get_slot('aksi')
+        # ruangan = tracker.get_slot('ruangan')
+        # sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        # sock.bind(("192.168.43.49", 7787))
+        # sock.listen(5)
+
+        # jsonData = {"aksi":aksi,"ruangan":ruangan}
+        # jsonData = json.dumps(jsonData)
+
+        # (conn, addr) = sock.accept()
+        # conn.send(jsonData.encode("UTF-8"))
         dispatcher.utter_message(template="utter_read_aksi")
         dispatcher.utter_message(text="Baik, tolong beritahu nama anda dan nama orang yang dituju ya!")
 
@@ -75,6 +95,7 @@ class ActionReadRuangan(Action):
         ruangan=next(tracker.get_latest_entity_values("ruangan"),None)
         print('ruangan berhasil diekstrak : ',ruangan)
         dispatcher.utter_message(template="utter_read_ruangan")
+        return[SlotSet("ruangan_entry", ruangan)]
 
 
 class ActionReadBarang(Action):
@@ -89,6 +110,7 @@ class ActionReadBarang(Action):
         barang=next(tracker.get_latest_entity_values("barang"),None)
         print('barang berhasil diekstrak : ',barang)
         dispatcher.utter_message(template="utter_read_barang")
+        return[SlotSet("barang_entry", barang)]
 
 class ActionReadNama(Action):
 
@@ -111,9 +133,30 @@ class ActionReadNama(Action):
             dispatcher.utter_message(text=msg)
             penerima=next(tracker.get_latest_entity_values(entity_type="nama", entity_role="penerima"),None)
             return []
-        print('pengirim berhasil diekstrak : ',pengirim)
-        print('penerima berhasil diekstrak : ',penerima)
+        SlotSet("pengirim_entry", pengirim)
+        SlotSet("penerima_entry", penerima)
+        print('pengirim berhasil diekstrak : ',tracker.get_slot('pengirim_entry'))
+        print('penerima berhasil diekstrak : ',tracker.get_slot('penerima_entry'))
         dispatcher.utter_message(template="utter_read_nama")
+        
+
+class ActionSendDatabase(Action):
+    """Send data to MySQL"""
+
+    def name(self):
+        return "action_send_database"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        DataUpdate(tracker.get_slot("aksi_entry"),    
+                   tracker.get_slot("ruangan_entry"),
+                   tracker.get_slot("pengirim_entry"),
+                   tracker.get_slot("penerima_entry"),
+                   tracker.get_slot("barang_entry")) 
+        dispatcher.utter_message("Terima kasih atas informasinya. Sekarang saya akan mengantarkan barang ini") 
+        print(type(tracker.get_slot("aksi_entry")))
+        return []
 
 class ActionPauseConversation(Action):
     """Pause a conversation"""
@@ -173,3 +216,24 @@ class ActionPauseConversation(Action):
 #         )
 
 #         return []
+
+# class ActionSendDataRos(Action):
+#     """To send data entity aksi and ruangan"""
+
+#     def name(self):
+#         return "action_send_data_ros"
+    
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+#         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#         sock.bind(("192.168.43.49", 7787))
+#         sock.listen(5)
+
+#         jsonData = {"aksi":str(tracker.get_slot('aksi_entry')),"ruangan":str(tracker.get_slot('ruangan_entry'))}
+#         jsonData = json.dumps(jsonData)
+
+#         (conn, addr) = sock.accept()
+#         conn.send(jsonData.encode("UTF-8"))
+
