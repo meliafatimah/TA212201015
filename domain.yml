@@ -2,6 +2,7 @@ version: "3.0"
 
 intents:
   - salam
+  - keyword
   - berpisah
   - afirmasi
   - tolakan
@@ -13,6 +14,7 @@ intents:
   - entry_ruangan
   - entry_barang
   - entry_nama
+  - entry_perintah
 
 entities:
   - aksi
@@ -22,10 +24,14 @@ entities:
       roles:
       - pengirim
       - penerima
+  - perintah
+  - parameter
 
 slots:
   aksi_entry:
-    type: text
+    type: categorical
+    values:
+      - delivery
     influence_conversation: true
     mappings:
     - type: from_entity
@@ -54,6 +60,19 @@ slots:
     - type: from_entity
       entity: nama
       role: penerima
+  perintah_entry:
+    type: categorical
+    values:
+      - Maju
+      - Mundur
+    mappings:
+    - type: from_entity
+      entity: perintah
+  parameter_entry:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: parameter
 
 responses:
   utter_salam:
@@ -81,7 +100,7 @@ responses:
   - text: Baik dimengerti. Akan saya antarkan
 
   utter_read_aksi:
-  - text: "Oke, aku harus {aksi_entry} {barang_entry} ke {ruangan_entry}"
+  - text: "Oke, aku harus mengantar {barang_entry} ke {ruangan_entry}"
 
   utter_read_ruangan:
   - text: "Ruangan tujuan adalah {ruangan_entry}"
@@ -91,6 +110,15 @@ responses:
 
   utter_read_nama:
   - text: "Nama anda adalah {pengirim_entry} dan aku akan mengirimkan barang kepada {penerima_entry}"
+
+  utter_send_perintah:
+  - text: "Baik aku akan bergerak {perintah_entry} {parameter_entry} meter"
+
+  utter_send_aksi:
+  - text: "Baik aku akan mengantar {barang_entry} ke {ruangan_entry}. {barang_entry} akan diterima oleh {penerima_entry}"
+
+  utter_konfirmasi:
+  - text: "Tolong katakan iya jika informasi yang diberikan telah sesuai"
 
 
 actions:
@@ -102,14 +130,14 @@ actions:
   - utter_iambot
   - utter_maaf
   - utter_dimengerti
+  - utter_konfirmasi
   - action_read_aksi
   - action_read_ruangan
   - action_read_barang
   - action_read_nama
-  # - action_resume_conversation
-  - action_paused_conversation
-  - action_send_data_ros
-  - action_send_database
+  - action_read_perintah
+  - action_send_database_aksi
+  - action_send_database_perintah
 
 session_config:
   session_expiration_time: 60

@@ -5,87 +5,88 @@ stories:
 - story: happy path 1
   steps:
   - user: |
-      hello there!
-    intent: greet
-  - action: utter_greet
+      hai
+    intent: salam
+  - action: utter_salam
   - user: |
-      amazing
-    intent: mood_great
-  - action: utter_happy
+      keren
+    intent: bagus
+  - action: utter_senang
 
 - story: happy path 2
   steps:
   - user: |
-      hello there!
-    intent: greet
-  - action: utter_greet
+      hi
+    intent: salam
+  - action: utter_salam
   - user: |
-      amazing
-    intent: mood_great
-  - action: utter_happy
+      keren
+    intent: bagus
+  - action: utter_senang
   - user: |
-      bye-bye!
-    intent: goodbye
-  - action: utter_goodbye
+      dadah
+    intent: berpisah
+  - action: utter_pisah
 
 - story: sad path 1
   steps:
   - user: |
       hello
-    intent: greet
-  - action: utter_greet
+    intent: salam
+  - action: utter_salam
   - user: |
-      not good
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
+      tidak baik
+    intent: tidak_bagus
+  - action: utter_semangat
+  - action: utter_apakah_membantu
   - user: |
-      yes
-    intent: affirm
-  - action: utter_happy
+      ya
+    intent: afirmasi
+  - action: utter_senang
 
 - story: sad path 2
   steps:
   - user: |
       hello
-    intent: greet
-  - action: utter_greet
+    intent: salam
+  - action: utter_salam
   - user: |
-      not good
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
+      tidak baik
+    intent: tidak_bagus
+  - action: utter_semangat
+  - action: utter_apakah_membantu
   - user: |
-      not really
-    intent: deny
-  - action: utter_goodbye
+      tidak
+    intent: tolakan
+  - action: utter_pisah
 
 - story: sad path 3
   steps:
   - user: |
       hi
-    intent: greet
-  - action: utter_greet
+    intent: salam
+  - action: utter_salam
   - user: |
-      very terrible
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
+      sangat kecewa
+    intent: tidak_bagus
+  - action: utter_semangat
+  - action: utter_apakah_membantu
   - user: |
-      no
-    intent: deny
-  - action: utter_goodbye
+      tidak
+    intent: tolakan
+  - action: utter_pisah
 
 - story: say goodbye
   steps:
   - user: |
-      bye-bye!
-    intent: goodbye
-  - action: utter_goodbye
+      dadah
+    intent: berpisah
+  - action: utter_pisah
 
 - story: bot challenge
   steps:
   - user: |
-      are you a bot?
-    intent: bot_challenge
+      apakah kamu bot
+    intent: tantangan_bot
   - action: utter_iamabot
+

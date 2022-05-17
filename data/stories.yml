@@ -2,6 +2,11 @@ version: "3.0"
 
 stories:
 
+- story: memberi keyword
+  steps:
+  - intent: keyword
+  - action: utter_iamabot
+
 - story: memberi salam
   steps:
   - intent: salam
@@ -11,10 +16,6 @@ stories:
   steps:
   - intent: berpisah
   - action: utter_pisah
-  - action: action_paused_conversation
-  # - action: action_resume_conversation
-  # - intent: salam
-  # - action: utter_salam
 
 - story: memberi afirmasi
   steps:
@@ -46,33 +47,145 @@ stories:
 #   - intent: perintah
 #   - action: utter_dimengerti
 
-- story: memberi aksi
+- story: memberi aksi 1
   steps:
   - intent: salam
   - action: utter_salam
   - intent: entry_aksi
     entities:
     - aksi: pergi
-  - action: action_read_aksi
-  - action: action_send_data_ros
-
-- story: memberi nomor ruangan
-  steps:
-  - intent: salam
-  - action: utter_salam
-  - intent: entry_ruangan
-    entities:
     - ruangan: satu kosong satu
-  - action: action_read_ruangan
+    - barang: obat
+  - action: action_read_aksi
+  - intent: entry_nama
+    entities:
+    - nama: Melia
+      role: pengirim
+    - nama: Andhika
+      role: penerima
+  - action: action_read_nama
+  - action: utter_konfirmasi
+  - intent: afirmasi
+  - action: action_send_database_aksi
 
-- story: memberi barang
+- story: memberi aksi 2
   steps:
   - intent: salam
   - action: utter_salam
-  - intent: entry_barang
+  - intent: entry_aksi
     entities:
-    - barang: makanan
-  - action: action_read_barang  
+    - aksi: pergi
+    - ruangan: satu kosong satu
+    - barang: obat
+  - action: action_read_aksi
+  - intent: entry_aksi
+    entities:
+    - aksi: pergi
+    - ruangan: satu kosong satu
+    - barang: obat
+  - action: action_read_aksi
+  - intent: entry_nama
+    entities:
+    - nama: Melia
+      role: pengirim
+    - nama: Andhika
+      role: penerima
+  - action: action_read_nama
+  - action: utter_konfirmasi
+  - intent: afirmasi
+  - action: action_send_database_aksi
+
+- story: memberi aksi 3
+  steps:
+  - intent: salam
+  - action: utter_salam
+  - intent: entry_aksi
+    entities:
+    - aksi: pergi
+    - ruangan: satu kosong satu
+    - barang: obat
+  - action: action_read_aksi
+  - intent: entry_aksi
+    entities:
+    - aksi: pergi
+    - ruangan: satu kosong satu
+    - barang: obat
+  - action: action_read_aksi
+  - intent: entry_nama
+    entities:
+    - nama: Melia
+      role: pengirim
+    - nama: Andhika
+      role: penerima
+  - action: action_read_nama
+  - intent: entry_nama
+    entities:
+    - nama: Melia
+      role: pengirim
+    - nama: Andhika
+      role: penerima
+  - action: action_read_nama
+  - action: utter_konfirmasi
+  - intent: afirmasi
+  - action: action_send_database_aksi
+  
+- story: memberi aksi 4
+  steps:
+  - intent: salam
+  - action: utter_salam
+  - intent: entry_aksi
+    entities:
+    - aksi: pergi
+    - ruangan: satu kosong satu
+    - barang: obat
+  - action: action_read_aksi
+  - intent: entry_aksi
+    entities:
+    - aksi: pergi
+    - ruangan: satu kosong satu
+    - barang: obat
+  - action: action_read_aksi
+  - intent: entry_aksi
+    entities:
+    - aksi: pergi
+    - ruangan: satu kosong satu
+    - barang: obat
+  - action: action_read_aksi
+  - intent: entry_nama
+    entities:
+    - nama: Melia
+      role: pengirim
+    - nama: Andhika
+      role: penerima
+  - action: action_read_nama
+  - intent: entry_nama
+    entities:
+    - nama: Melia
+      role: pengirim
+    - nama: Andhika
+      role: penerima
+  - action: action_read_nama
+  - action: utter_konfirmasi
+  - intent: afirmasi
+  - action: action_send_database_aksi
+
+# - story: memberi nomor ruangan
+#   steps:
+#   - intent: salam
+#   - action: utter_salam
+#   - intent: entry_ruangan
+#     entities:
+#     - ruangan: satu kosong satu
+#   - action: action_read_ruangan
+
+# - story: memberi barang
+#   steps:
+#   - intent: salam
+#   - action: utter_salam
+#   - intent: entry_barang
+#     entities:
+#     - barang: makanan
+#   - action: action_read_barang  
 
 - story: memberi nama
   steps:
@@ -85,4 +198,37 @@ stories:
     - nama: Andhika
       role: penerima
   - action: action_read_nama
-  - action: action_send_database
+  - intent: entry_aksi
+    entities:
+    - aksi: pergi
+    - ruangan: satu kosong satu
+    - barang: obat
+  - action: action_read_aksi
+  - action: action_send_database_aksi
+
+- story: memberi perintah 1
+  steps:
+  - intent: salam
+  - action: utter_salam
+  - intent: entry_perintah
+    entities:
+    - perintah: maju
+    - parameter: satu
+  - action: action_read_perintah
+  - intent: entry_perintah
+    entities:
+    - perintah: maju
+    - parameter: satu
+  - action: action_read_perintah
+  - action: action_send_database_perintah
+
+- story: memberi perintah 2
+  steps:
+  - intent: salam
+  - action: utter_salam
+  - intent: entry_perintah
+    entities:
+    - perintah: maju
+    - parameter: satu
+  - action: action_read_perintah
+  - action: action_send_database_perintah
