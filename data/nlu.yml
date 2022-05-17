@@ -1,6 +1,13 @@
 version: "3.0"
 
 nlu:
+- intent: keyword
+  examples: |
+    - robot
+    - hai robot
+    - ok robot
+    - halo robot
+
 - intent: salam
   examples: |
     - hey
@@ -99,16 +106,29 @@ nlu:
 #     - tolong antar makanan
 #     - pergi ke ruangan
 
+- intent: entry_perintah
+  examples: |
+    - [maju]{"entity": "perintah", "value": "maju"} [satu]{"entity": "parameter", "value": "1"} meter
+    - [mundur]{"entity": "perintah", "value": "mundur"} [dua]{"entity": "parameter", "value": "2"} meter
+    - tolong [maju]{"entity": "perintah", "value": "maju"} [tiga]{"entity": "parameter", "value": "3"} meter
+    - harap [mundur]{"entity": "perintah", "value": "mundur"} [empat]{"entity": "parameter", "value": "4"} meter
+    - [lima]{"entity": "parameter", "value": "5"} meter [kebelakang]{"entity": "perintah", "value": "mundur"}
+    - [enam]{"entity": "parameter", "value": "6"} meter [kedepan]{"entity": "perintah", "value": "maju"}
+    - [tujuh]{"entity": "parameter", "value": "7"} meter [ke belakang]{"entity": "perintah", "value": "mundur"}
+    - [delapan]{"entity": "parameter", "value": "8"} meter [ke depan]{"entity": "perintah", "value": "maju"}
+    - [kebelakang]{"entity": "perintah", "value": "mundur"} [sembilan]{"entity": "parameter", "value": "9"} meter
+    - [kedepan]{"entity": "perintah", "value": "maju"} [pat]{"entity": "parameter", "value": "4"} meter
+    - [ke belakang]{"entity": "perintah", "value": "mundur"} [nam]{"entity": "parameter", "value": "6"} meter
+    - [ke depan]{"entity": "perintah", "value": "maju"} [sepuluh]{"entity": "parameter", "value": "10"} meter
+    
+
 - intent: entry_aksi
   examples: |
-    - [pergi](aksi) ke ruangan [satu kosong satu](ruangan)
-    - [maju](aksi) 5 langkah
-    - [putar](aksi) 2 putaran
-    - [mundur](aksi) 2 langkah
-    - tolong [antar](aksi) [berkas laboratorium](barang)
-    - tolong [antarkan](aksi) [berkas laboratorium](barang)
-    - tolong [antar](aksi) [makanan](barang)
-    - tolong [antarkan](aksi) [makanan](barang)
+    - tolong [antar]{"entity": "aksi", "value": "delivery"} [berkas laboratorium](barang)
+    - tolong [antarkan]{"entity": "aksi", "value": "delivery"} [berkas laboratorium](barang)
+    - tolong [antar]{"entity": "aksi", "value": "delivery"} [makanan](barang)
+    - tolong [antarkan]{"entity": "aksi", "value": "delivery"} [makanan](barang)
+    - [pergi]{"entity": "aksi", "value": "delivery"} ke ruangan [satu kosong satu](ruangan)
 
 - intent: entry_ruangan
   examples: |
@@ -128,24 +148,55 @@ nlu:
 
 - intent: entry_nama
   examples: |
-    - halo, namaku [Melia]{"entity": "nama", "role": "pengirim"} tolong [antarkan](aksi) barang ini kepada [Andhika]{"entity": "nama", "role": "penerima"} ya
+    - halo namaku [Melia]{"entity": "nama", "role": "pengirim"} tolong [antarkan]{"entity": "aksi", "value": "delivery"} barang ini kepada [Andhika]{"entity": "nama", "role": "penerima"} ya
     - namaku [Melia]{"entity": "nama", "role": "pengirim"}
     - namanya [Andhika]{"entity": "nama", "role": "penerima"}
-    - [antarkan](aksi) barang ini kepada [Andhika]{"entity": "nama", "role": "penerima"} ya
+    - [antarkan]{"entity": "aksi", "value": "delivery"} barang ini kepada [Andhika]{"entity": "nama", "role": "penerima"} ya
     - ini barang untuk [Harry]{"entity": "nama", "role": "penerima"} 
     - barang ini untuk [Andhika]{"entity": "nama", "role": "penerima"}
     - barang ini dari [Melia]{"entity": "nama", "role": "pengirim"}
-    - tolong [antarkan](aksi) kepada [Andhika]{"entity": "nama", "role": "penerima"}
+    - tolong [antarkan]{"entity": "aksi", "value": "delivery"} kepada [Andhika]{"entity": "nama", "role": "penerima"}
 
-- lookup: aksi
+# - lookup: aksi
+#   examples: |
+#     - pergi
+#     - antar
+#     - antarkan
+
+# - lookup: perintah
+#   examples: |
+#     - maju
+#     - mundur
+#     - kebelakang
+#     - ke belakang
+#     - belakang
+#     - kedepan
+#     - ke depan
+#     - depan
+
+# - synonym: maju
+#   examples: |
+#     - kedepan
+#     - ke depan
+#     - depan
+
+# - synonym: mundur
+#   examples: |
+#     - kebelakang
+#     - ke belakang
+#     - belakang
+
+- lookup: parameter
   examples: |
-    - pergi
-    - maju
-    - mundur
-    - putar
-    - bergerak
-    - antar
-    - antarkan
+    - satu
+    - dua
+    - tiga
+    - empat
+    - lima
+    - enam
+    - tujuh
+    - delapan
+    - sembilan
 
 - lookup: ruangan
   examples: |

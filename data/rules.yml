@@ -6,7 +6,6 @@ rules:
   steps:
   - intent: berpisah
   - action: utter_pisah
-  - action: action_paused_conversation
 
 - rule: Bilang "aku adalah bot" bagaimanapun kondisinya
   steps:
@@ -18,15 +17,15 @@ rules:
 #   - intent: entry_aksi
 #   - action: action_read_aksi
 
-- rule: Ekstrak ruangan
-  steps:
-  - intent: entry_ruangan
-  - action: action_read_ruangan
+# - rule: Ekstrak ruangan
+#   steps:
+#   - intent: entry_ruangan
+#   - action: action_read_ruangan
 
-- rule: Ekstrak barang
-  steps:
-  - intent: entry_barang
-  - action: action_read_barang
+# - rule: Ekstrak barang
+#   steps:
+#   - intent: entry_barang
+#   - action: action_read_barang
 
 # - rule: Ekstrak nama
 #   steps:
