@@ -1,0 +1,55 @@
+start
+    while rospy is not shutdown:
+        // Refresh Current Robot Position and destination point
+        if new destination_point == True:
+            destination_point <= new_destination_point
+            accumulate_error <= 0
+            delta_error <= 0
+
+        current_point <= new_current_point
+        
+        // Calculate error position
+        dx <= destination_point.x - current_point.x
+        dy <= destination_point.y - current_point.y
+        error_position <= square_root(dx*dx,dy*dy)
+        
+        // Calculate error orientation
+        angle_dest <= tan(destination_point.y, destination_point.x)
+        dtheta <= angle_dest - current_point.theta
+
+        // Cutoff threshold
+        if abs(error_position) < 0.1:
+
+            velocity_command.translation <= 0 
+            velocity_command.orientation <= 0 
+            send reach_goal == True to MySQL connector
+            send reach_goal == True to /target_status topic
+
+        else if abs(dtheta) > 0.04:
+            accumulate_error.ort <= accumulate_error.ort + dtheta
+            threshold -0.5 < accumulate_error.ort < 0.5
+            difference_error.ort <= (dtheta - last_error.ort) * rospy.Rate
+            targetVel.ort <= ( Kp.ort * dtheta + 
+                               Ki.ort * accumulate_error.ort +
+                               Kd.ort * difference_error.ort)
+            last_error.ort <= dtheta
+            threshold -0.5 < targetVel.ort < 0.5
+
+            velocity_command.translation <= 0.0
+            velocity_command.orientation <= targetVel.ort
+           
+        else :
+            accumulate_error.linear <= accumulate_error.linear + dtheta
+            threshold -0.5 < accumulate_error.linear < 0.5
+            difference_error.linear <= (dtheta - last_error.linear) * rospy.Rate
+            targetVel.linear <= ( Kp.linear * dtheta + 
+                               Ki.linear * accumulate_error.linear +
+                               Kd.linear * difference_error.linear)
+            last_error.linear <= dtheta
+            threshold -0.5 < targetVel.linear < 0.5
+
+            velocity_command.translation <= targetVel.linear
+            velocity_command.orientation <= 0.0
+
+        publish velocity_command to /cmd_vel
+end
