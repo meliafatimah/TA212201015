@@ -1,4 +1,10 @@
 start
+    init node
+    init publisher
+    init subscriber
+    init Kp, Ki, Kd (PID parameters)
+    init PID error values
+    init MySQL.connector parameters
     while rospy is not shutdown:
         // Refresh Current Robot Position and destination point
         if new destination_point == True:
